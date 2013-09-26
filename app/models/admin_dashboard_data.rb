@@ -27,6 +27,7 @@ class AdminDashboardData
       sidekiq_check || queue_size_check,
       ram_check,
       facebook_config_check,
+      hosm_config_check,
       twitter_config_check,
       github_config_check,
       s3_config_check,
@@ -101,6 +102,10 @@ class AdminDashboardData
 
   def ram_check
     I18n.t('dashboard.memory_warning') if MemInfo.new.mem_total and MemInfo.new.mem_total < 1_000_000
+  end
+
+  def hosm_config_check
+    I18n.t('dashboard.hosm_config_warning') if SiteSetting.enable_hosm_logins and (SiteSetting.hosm_app_id.blank? or SiteSetting.hosm_app_secret.blank?)
   end
 
   def facebook_config_check

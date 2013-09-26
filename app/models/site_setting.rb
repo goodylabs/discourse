@@ -170,6 +170,10 @@ class SiteSetting < ActiveRecord::Base
   setting(:cas_hostname, '')
   setting(:cas_domainname, '')
 
+  client_setting(:enable_hosm_logins, true)
+  setting(:hosm_app_id, 'demo_id')
+  setting(:hosm_app_secret, 'demo_secret')
+
   client_setting(:enable_github_logins, false)
   setting(:github_client_id, '')
   setting(:github_client_secret, '')

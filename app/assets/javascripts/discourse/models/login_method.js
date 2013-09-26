@@ -31,6 +31,7 @@ Discourse.LoginMethod.reopenClass({
      * */
 
     [ "google",
+      "hosm",
       "facebook",
       "cas",
       "twitter",
